@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "subscriber");
 	ros::NodeHandle nh;
 	// message_filtersの初期化
-	typedef ApproximateTime<Int32Stamped, Int32Stamped> Syncpolicy;
+	typedef ApproximateTime<Int32Stamped, Int32Stamped> SyncPolicy;
 	message_filters::Subscriber<Int32Stamped> sub1(nh, "number1", 10);
 	message_filters::Subscriber<Int32Stamped> sub2(nh, "number2", 10);
 	Synchronizer<SyncPolicy> sync_msgs(SyncPolicy(10), sub1, sub2);
